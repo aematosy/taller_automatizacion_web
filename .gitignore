@@ -1,0 +1,6 @@
+/target/
+/allure-results/
+/test-output/
+*.png
+
+/allure-report/

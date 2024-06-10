@@ -1,0 +1,20 @@
+/* Estilo para el encabezado de la página */
+.header {
+    background-color: #333;
+    color: #fff;
+    padding: 10px;
+    text-align: center;
+}
+
+/* Estilo para los escenarios */
+.scenario {
+    background-color: #f7f7f7;
+    border: 1px solid #ddd;
+    margin: 10px 0;
+    padding: 10px;
+}
+
+/* Estilo para los pasos de los escenarios */
+.step {
+    margin-left: 20px;
+}
