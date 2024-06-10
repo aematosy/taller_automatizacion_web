@@ -2,7 +2,7 @@
 <suite name="Cucumber Suite">
     <test name="Cucumber Test">
         <classes>
-            <class name="com.privalia.Runner.TestRunner" />
+            <class name="com.taller.Runner.TestRunner" />
         </classes>
     </test>
 </suite>

@@ -5,7 +5,7 @@
 	<groupId>Final-Project</groupId>
 	<artifactId>Final-Project</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
-	<name>Proyecto_Automatizacion</name>
+	<name>Taller_Automatizacion</name>
 
 	<properties>
 		<!-- https://maven.apache.org/general.html#encoding-warning -->

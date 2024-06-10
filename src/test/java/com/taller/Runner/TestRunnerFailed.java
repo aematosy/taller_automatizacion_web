@@ -1,14 +1,12 @@
-package com.privalia.Runner;
+package com.taller.Runner;
 
-import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.DataProvider;
 import io.cucumber.testng.AbstractTestNGCucumberTests;
 import io.cucumber.testng.CucumberOptions;
 
 @CucumberOptions(
-		features = "src/test/resources/features/", 
-		glue = "com.privalia",
-		tags = "@register_login",
+		features = { "@target/failedrerun.txt" },
+		glue = "com.store",
 		plugin = {"pretty",
 				  "summary",
 				  "html:target/cucumber-reports/html-report.html",
@@ -23,15 +21,11 @@ import io.cucumber.testng.CucumberOptions;
 		publish = true
 		)
 
-public class TestRunner extends AbstractTestNGCucumberTests {
-	
-	@BeforeMethod(alwaysRun = true)
-	public void test() {
-	}
-
+public class TestRunnerFailed extends AbstractTestNGCucumberTests{
 	@Override
-    @DataProvider(parallel = false)
+    @DataProvider(parallel = true)
     public Object[][] scenarios() {
         return super.scenarios();
     }
 }
+

@@ -1,4 +1,4 @@
-package com.privalia.Utils;
+package com.taller.Utils;
 
 import java.io.File;
 import java.time.Duration;
@@ -77,7 +77,7 @@ public class Utilities extends Base {
 		returnDriver().navigate().refresh();
 	}
 
-	public static WebElement waitElementToClick(WebElement element) {
+	/*public static WebElement waitElementToClick(WebElement element) {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(returnDriver()).withTimeout(Duration.ofSeconds(10))
 				.ignoring(NoSuchElementException.class).ignoring(UnknownError.class).ignoring(WebDriverException.class);
 		try {
@@ -86,7 +86,7 @@ public class Utilities extends Base {
 			System.out.println("Don't found element " + e.getMessage());
 			return null;
 		}
-	}
+	}*/
 
 	public static WebElement waitElementVisible(WebElement element) {
 		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(returnDriver()).withTimeout(Duration.ofSeconds(15))
@@ -112,7 +112,7 @@ public class Utilities extends Base {
 		}
 	}
 
-	public static void clickElement(WebElement element) {
+	/*public static void clickElement(WebElement element) {
 
 		Wait<WebDriver> wait = new FluentWait<WebDriver>(returnDriver()).withTimeout(Duration.ofSeconds(20))
 				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
@@ -124,7 +124,7 @@ public class Utilities extends Base {
 		}
 		element.click();
 
-	}
+	}*/
 
 	public static void sendText(WebElement element, String value) {
 
@@ -373,5 +373,32 @@ public class Utilities extends Base {
         // Scroll de vuelta al principio de la página
         jsExecutor.executeScript("window.scrollTo(0, 0);");
     }
-    
+  /*-----------------------------------------------By--------------------------------------------------------------*/
+
+	public static WebElement waitElementToClick(By locator) {
+		FluentWait<WebDriver> wait = new FluentWait<>(returnDriver())
+				.withTimeout(Duration.ofSeconds(10))
+				.ignoring(NoSuchElementException.class)
+				.ignoring(UnknownError.class)
+				.ignoring(WebDriverException.class);
+		try {
+			return wait.until(ExpectedConditions.elementToBeClickable(locator));
+		} catch (Exception e) {
+			System.out.println("Element not found: " + e.getMessage());
+			return null;
+		}
+	}
+
+	public static void clickElement(By locator) {
+		Wait<WebDriver> wait = new FluentWait<WebDriver>(returnDriver()).withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		WebElement element = wait.until(ExpectedConditions.elementToBeClickable(locator));
+		if (returnDriver() instanceof JavascriptExecutor) {
+			((JavascriptExecutor) returnDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
+		}
+		element.click();
+	}
+
+
+
 }

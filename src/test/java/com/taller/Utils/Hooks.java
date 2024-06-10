@@ -1,4 +1,4 @@
-package com.privalia.Utils;
+package com.taller.Utils;
 
 import java.util.Properties;
 import org.openqa.selenium.OutputType;

@@ -1,4 +1,4 @@
-package com.privalia.Utils;
+package com.taller.Utils;
 
 import io.cucumber.datatable.DataTable;
 import java.util.ArrayList;

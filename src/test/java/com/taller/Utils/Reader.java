@@ -1,4 +1,4 @@
-package com.privalia.Utils;
+package com.taller.Utils;
 
 import java.io.FileInputStream;
 import java.io.IOException;
