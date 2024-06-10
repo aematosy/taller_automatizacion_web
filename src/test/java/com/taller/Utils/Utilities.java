@@ -399,6 +399,53 @@ public class Utilities extends Base {
 		element.click();
 	}
 
+	public static void sendText(By locator, String value) {
+		WebElement element = findElement(locator);
+		if (element != null) {
+			String selectAll = Keys.chord(Keys.HOME, Keys.SHIFT, Keys.END);
+			if (returnDriver() instanceof JavascriptExecutor) {
+				((JavascriptExecutor) returnDriver()).executeScript("arguments[0].style.border='3px solid red'", element);
+			}
+			element.sendKeys(selectAll, value, Keys.TAB);
+		} else {
+			System.out.println("Element not found");
+		}
+	}
 
+	private static WebElement findElement(By locator) {
+		FluentWait<WebDriver> wait = new FluentWait<WebDriver>(returnDriver()).withTimeout(Duration.ofSeconds(20))
+				.pollingEvery(Duration.ofSeconds(2)).ignoring(NoSuchElementException.class);
+		try {
+			return wait.until(ExpectedConditions.presenceOfElementLocated(locator));
+		} catch (Exception e) {
+			System.out.println("Don't found element " + e.getMessage());
+			return null;
+		}
+	}
 
+	public static void waitPresence(By locator) {
+		try {
+			WebDriverWait wait = new WebDriverWait(returnDriver(), Duration.ofSeconds(10));
+			wait.until(ExpectedConditions.visibilityOfElementLocated(locator));
+		} catch (Exception ignored) {
+		}
+	}
+
+	public static String getText(By locator) {
+		WebElement element = findElement(locator);
+		return element != null ? element.getText() : null;
+	}
+
+	public static void setDropdownByValue(By selectLocator, String value) {
+		WebElement dropdown = waitForElement(selectLocator);
+		if (dropdown != null) {
+			Select select = new Select(dropdown);
+			select.selectByValue(value);
+		}
+	}
+
+	public static WebElement waitForElement(By locator) {
+		WebDriverWait wait = new WebDriverWait(returnDriver(), Duration.ofSeconds(10));
+		return wait.until(driver -> driver.findElement(locator));
+	}
 }
