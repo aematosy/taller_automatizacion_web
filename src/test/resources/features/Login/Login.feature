@@ -1,6 +1,6 @@
 Feature: Login success on DemoSite Guru with a new account
 
-  @TEST_XRAB-9
+  @Taller
   Scenario Outline: Login success on DemoSite Guru with a new account
     Given The user is on home page
     When I click on "Register" option
