@@ -1,7 +1,6 @@
 package com.taller.Utils;
 
 import java.util.Properties;
-import com.taller.listeners.validator.AdValidator;
 import org.openqa.selenium.OutputType;
 import org.openqa.selenium.TakesScreenshot;
 import org.openqa.selenium.WebDriver;
@@ -16,7 +15,6 @@ public class Hooks {
 	private static WebDriver driver;
 	private Properties prop;
 	private Base driverBase;
-	private AdValidator adValidator;
 
 	@Before
 	public void setup() throws Throwable {
@@ -24,10 +22,6 @@ public class Hooks {
 		driverBase = new Base();
 		driver = driverBase.loadDriver(prop.getProperty("browser"));
 		driver.get(prop.getProperty("url"));
-
-		adValidator = new AdValidator();
-		adValidator.validate(null, driver);
-
 	}
 
 	@After

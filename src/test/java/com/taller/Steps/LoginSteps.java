@@ -44,7 +44,4 @@ public class LoginSteps extends Base {
 		assertTrue(LoginPage.isLoginSuccessful());
 	}
 
-
-	
-
 }

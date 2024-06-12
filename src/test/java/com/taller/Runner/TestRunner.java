@@ -8,7 +8,7 @@ import io.cucumber.testng.CucumberOptions;
 @CucumberOptions(
 		features = "src/test/resources/features/", 
 		glue = "com.taller",
-		tags = "@register_login",
+		tags = "@TEST_XRAB-9",
 		plugin = {"pretty",
 				  "summary",
 				  "html:target/cucumber-reports/html-report.html",

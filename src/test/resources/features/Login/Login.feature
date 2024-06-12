@@ -1,12 +1,8 @@
-#Author: Adrian Matos
-@Taller
-Feature: LoginPage of Demosite
+Feature: Login success on DemoSite Guru with a new account
 
-  Background: Open the url in the browser
-    Given The user is on home page
-
-  @register_login
+  @TEST_XRAB-9
   Scenario Outline: Login success on DemoSite Guru with a new account
+    Given The user is on home page
     When I click on "Register" option
     And I fill in the Contact Information with firstname "<firstname>", lastname "<lastname>", phone "<phone>", and email "<email>"
     And I fill in the Mailing Information with address "<address>", city "<city>", state "<state>", postal code "<postal_code>", and country "<country>"
